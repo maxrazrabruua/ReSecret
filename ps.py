@@ -3,9 +3,9 @@ import safe
 
 def readfile(name):
     """
-    Данная функция читает файл с именем заданым через переменную-аргумент вовзращая соддержимое
+    Данная функция читает файл с именем заданым через переменную-аргумент возвращая соддержимое
 
-    :param name: Имя файла для чтенния(без расширения)
+    :param name: Имя файла для чтения(без расширения)
     :type name: str
     :return: соддержимое файла
     :rtype: str
@@ -29,8 +29,8 @@ def run(code):
 
     :param code: код на языке PythonScript
     :type code: str
-    :return: none
-    :rtype: none
+    :return: None
+    :rtype: None
     """
     i = 0
     for command in code.split("\n"):
@@ -42,7 +42,7 @@ def run(code):
 
 def printf(*args):
     """
-    Функция создана для инпретатора вот что она выполняет:
+    Функция создана для интепретатора вот что она выполняет:
     1. **Проверяет наличие есть ли переменная в списке vars если нет то выдаёт ошибку и завершает выполнение кода а иначе добавляет его значение**
 
     :param args: список аргументов т. е. переменные с $ перед ними или обычные слова
@@ -61,14 +61,14 @@ def printf(*args):
                 if word[1:] in vars.keys():
                     content.append(str(vars[word[1:]]))
                 else:
-                    return (False, f"Error: Varrible '{word[1:]}' not found!")
+                    return (False, f"Error: Variable '{word[1:]}' not found!")
         else:
             content.append(str(word))
     return (True, print(" ".join(content)))
 
 def notspaceprint(*args):
     """
-    Функция создана для инпретатора вот что она выполняет:
+    Функция создана для интепретатора вот что она выполняет:
     1. **Проверяет наличие есть ли переменная в списке vars если нет то выдаёт ошибку и завершает выполнение кода а иначе добавляет его значение**
 
     :param args: список аргументов т. е. переменные с $ перед ними или обычные слова в отличие от printf() эта функция не добавляет пробелы между словами
@@ -87,7 +87,7 @@ def notspaceprint(*args):
                 if word[1:] in vars.keys():
                     content += str(vars[word[1:]])
                 else:
-                    return (False, f"Error: Varrible '{word[1:]}' not found!")
+                    return (False, f"Error: Variable '{word[1:]}' not found!")
         else:
             content += str(word)
     return (True, print(content))
@@ -179,7 +179,7 @@ def costyl2(var, a, b, op):
 def math(var, a, b, op):
     global vars
     """
-    Функция создана для инпретатора вот что она выполняет:
+    Функция создана для интепретатора вот что она выполняет:
     1. **Проверяет наличие есть ли переменная в списке vars если нет то выдаёт ошибку и завершает выполнение кода а иначе добавляет его значение**
     2. **Проверяет наличие оператора который нужно использовать для выполнения операции если его нет то выдаёт ошибку и завершает выполнение кода а иначе выполняет операцию**
 
@@ -205,7 +205,7 @@ def math(var, a, b, op):
                 if v[1:] in vars.keys():
                     types.append(type(vars[v[1:]]))
                 else:
-                    return (False, f"Error: Varrible '{v[1:]}' not found!")
+                    return (False, f"Error: Variable '{v[1:]}' not found!")
         else:
             try:
                 int(v)
@@ -278,7 +278,7 @@ def math(var, a, b, op):
 
 def intepretator(com):
     """
-    Сам инпретатор искающий команды выполняющих их задачу и возращающий успех или ошибку выполнения
+    Сам интепретатор искающий команды выполняющих их задачу и возращающий успех или ошибку выполнения
 
     :param com: список аргументов которые состовляют эту самую команду
     :type com: list
@@ -331,7 +331,7 @@ def intepretator(com):
                     del vars[com[1]]
                     return (True, " ")
                 else:
-                    return (False, f"Error: Varrible '{com[1]}' not found")
+                    return (False, f"Error: Variable '{com[1]}' not found")
             else:
                 return (False, "Error: Incorrect length")
         elif com[0] == "math":
